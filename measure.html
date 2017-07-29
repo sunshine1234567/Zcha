@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>测量参数</title>
+    <link href="css/base-pc.css" rel="stylesheet" type="text/css">
+    <link href="css/measure.css" rel="stylesheet" type="text/css">
+</head>
+<body class="p-r">
+<div id="head"></div>
+<div class="measure">
+    <div class="container">
+       <div id="left"></div>
+        <div class="measure-right f-l">
+           <div id="right"></div>
+            <div class="measure-parameter p-r">
+                <p class="fs-16 fw-6">测量参数<img src="img/tubiao4.png"/></p>
+                <ul class="d-ib f-l c-6 fs-14">
+                    <li>剂量率预警阈值（μSv/h）<span>20</span></li>
+                    <li>剂量率预警阈值（μSv/h）<span>20</span></li>
+                    <li>中子报警阈值（cps）<span>20</span></li>
+                    <li>探头转换阈值1（μSv/h）<span>20</span></li>
+                    <li>探头转换阈值2（μSv/h）<span>20</span></li>
+                    <li>累计剂量阈值（μSv）<span>20</span></li>
+                    <li>寻源采样周期（ms）<span>20</span></li>
+                    <li>GM校正系数 <span>20</span></li>
+                </ul>
+                <ul class="parameter-t d-ib f-l c-6 fs-14">
+                    <li>开机刻度 <span>否</span></li>
+                    <li>稳谱选择 <span>是</span></li>
+                    <li>专家或用户模式 <span>专家</span></li>
+                    <li>剂量率指示模式 <span>NaI</span></li>
+                    <li>自动保存能谱 <span>是</span></li>
+                    <a href="#" class="dump d-ib ta-c">累积剂量清除</a>
+                </ul>
+                <div class="c-b"></div>
+                <div class="read2 p-a fs-16">
+                    <a href="javascript:;" class="read-a"><img src="img/tubiao5.png"/>读取</a>
+                    <a href="javascript:;" class="set"><img src="img/tubiao6.png"/>设置</a>
+                </div>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="c-b"></div>
+    </div>
+</div>
+<div class="zz p-a d-n"></div>
+<div class="timing d-ib p-f bg-f ta-c d-n fs-18">
+    <p class="c-6 fw-6">设备重启是否重新校时?</p>
+    <a href="javascript:;" class="timing-y d-ib p-a fw-6">是</a>
+    <a href="javascript:;" class="timing-n d-ib p-a fw-6">否</a>
+</div>
+<div class="parameter d-ib p-f bg-f ta-c d-n">
+    <img src="img/tubiao16.png"/>
+    <p class="fs-18 c-3 fw-6">读取参数成功</p>
+</div>
+<div class="parameter2 d-ib p-f bg-f ta-c d-n">
+    <img src="img/tubiao17.png"/>
+    <p class="fs-18 c-3 fw-6">读取参数失败</p>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script>
+    $("#head").load('head.html',function () {
+    });
+    $("#left").load('left.html',function () {
+        $('#meas').addClass('active')
+        $(".zz,.timing-n").click(function () {
+            $(".zz,.timing,.parameter").hide();
+        })
+        $(".read-a").click(function () {
+            $(".zz,.parameter").show();
+        })
+        $(".set").click(function () {
+            $(".zz,.timing").show();
+        })
+        $(".measure-list li").click(function () {
+            $(".measure-list li").removeClass("active");
+            $(this).addClass("active")
+        })
+        $(".measure-list p").click(function () {
+            $(this).next(".two").slideToggle();
+        })
+        $(".two p").click(function () {
+            $(".two p").removeClass("tow-active");
+            $(this).addClass("tow-active");
+            $('.measure .measure-right').hide().eq($(this).index()).fadeIn(150);
+        })
+    });
+    $("#right").load('right.html');
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

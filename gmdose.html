@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>通讯参数</title>
+    <link href="css/base-pc.css" rel="stylesheet" type="text/css">
+    <link href="css/measure.css" rel="stylesheet" type="text/css">
+</head>
+<body class="p-r">
+<div id="head"></div>
+<div class="measure">
+    <div class="container">
+        <div id="left"></div>
+        <div class="measure-right f-l" >
+            <div class="measure-trends" style="height: 230px">
+                <p class="fs-14 d-ib f-l">刻度列表<img src="img/tubiao3.png"/></p>
+                <div class="trends-ul d-ib f-l">
+                    <table border="1" cellspacing="0">
+                        <tr>
+                            <td>编号</td>
+                            <td>计数率（cps）</td>
+                            <td>剂量率（uSv/h）</td>
+                            <td>刻度系数K</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>......</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="c-b"></div>
+                </div>
+                <div class="c-b"></div>
+
+            </div>
+            <div class="gmdose-par p-r">
+                <p class="fs-16 fw-6">刻度<img src="img/tubiao4.png"/></p>
+                <ul class="d-ib f-l c-6 fs-14">
+                    <li>计数率<span>32.78</span>uSv/h</li>
+                    <li>剂量率<span>32.78</span>cps</li>
+                    <li>置信度<span>96%</span></li>
+                    <li>误差&nbsp;&nbsp;&nbsp;<span>5.5%</span></li>
+                    <li>约定真值<input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uSv/h</li>
+                </ul>
+                <div class="c-b"></div>
+                <a href="#" class="dump d-ib ta-c" style="margin-left: 200px">确定</a>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="c-b"></div>
+    </div>
+</div>
+<div class="zz p-a d-n"></div>
+<div class="timing d-ib p-f bg-f ta-c d-n fs-18">
+    <p class="c-6 fw-6">设备重启是否重新校时?</p>
+    <a href="javascript:;" class="timing-y d-ib p-a fw-6">是</a>
+    <a href="javascript:;" class="timing-n d-ib p-a fw-6">否</a>
+</div>
+<div class="parameter d-ib p-f bg-f ta-c d-n">
+    <img src="img/tubiao16.png"/>
+    <p class="fs-18 c-3 fw-6">读取参数成功</p>
+</div>
+<div class="parameter2 d-ib p-f bg-f ta-c d-n">
+    <img src="img/tubiao17.png"/>
+    <p class="fs-18 c-3 fw-6">读取参数失败</p>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script>
+    $("#head").load('head.html', function () {
+
+    });
+    $("#left").load('left.html', function () {
+        $('#gmdose').addClass('active')
+        $(".zz,.timing-n").click(function () {
+            $(".zz,.timing,.parameter").hide();
+        })
+        $(".read-a").click(function () {
+            $(".zz,.parameter").show();
+        })
+        $(".set").click(function () {
+            $(".zz,.timing").show();
+        })
+        $(".measure-list li").click(function () {
+            $(".measure-list li").removeClass("active");
+            $(this).addClass("active")
+        })
+        $(".measure-list p").click(function () {
+            $(this).next(".two").slideToggle();
+        })
+        $(".two p").click(function () {
+            $(".two p").removeClass("tow-active");
+            $(this).addClass("tow-active");
+            $('.measure .measure-right').hide().eq($(this).index()).fadeIn(150);
+        })
+    });
+    $("#right").load('right.html');
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>通讯参数</title>
+    <link href="css/base-pc.css" rel="stylesheet" type="text/css">
+    <link href="css/measure.css" rel="stylesheet" type="text/css">
+</head>
+<body class="p-r">
+<div id="head"></div>
+<div class="measure">
+    <div class="container">
+        <div id="left"></div>
+        <div class="measure-right f-l">
+            <div id="right"></div>
+            <div class="expert-par p-r">
+                <p class="fs-16 fw-6">专家调试<img src="img/tubiao4.png"/></p>
+                <div class="border">
+                    <a class="a-ab">能谱采集测试</a>
+                    <ul class="d-ib f-l c-6 fs-14">
+                        <li>采集周期（s）<span>1800</span></li>
+                        <a href="#" class="dump d-ib ta-c" style="margin-left: 100px">开始</a>
+                        <a href="#" class="dump d-ib ta-c">结束</a>
+                    </ul>
+                </div>
+                <div class="border" style="height: 100px">
+                    <a class="a-ab" style="margin-left: 260px; ">出厂值</a>
+                    <ul class="d-ib f-l c-6 fs-14" style="margin-left: 170px;">
+                        <a href="#" class="dump2 d-ib ta-c">设置出厂值</a>
+                        <a href="#" class="dump2 d-ib ta-c">关闭中子探测器</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="measure-right f-l d-n">
+            <div class="measure-trends">
+                <p class="fs-14 d-ib f-l">动态监控<img src="img/tubiao3.png"/></p>
+            </div>
+        </div>
+        <div class="c-b"></div>
+    </div>
+</div>
+<div class="zz p-a d-n"></div>
+<div class="timing d-ib p-f bg-f ta-c d-n fs-18">
+    <p class="c-6 fw-6">设备重启是否重新校时?</p>
+    <a href="javascript:;" class="timing-y d-ib p-a fw-6">是</a>
+    <a href="javascript:;" class="timing-n d-ib p-a fw-6">否</a>
+</div>
+<div class="parameter d-ib p-f bg-f ta-c d-n">
+    <img src="img/tubiao16.png"/>
+    <p class="fs-18 c-3 fw-6">读取参数成功</p>
+</div>
+<div class="parameter2 d-ib p-f bg-f ta-c d-n">
+    <img src="img/tubiao17.png"/>
+    <p class="fs-18 c-3 fw-6">读取参数失败</p>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script>
+    $("#head").load('head.html', function () {
+
+    });
+    $("#left").load('left.html', function () {
+        $('#expert').addClass('active')
+        $(".zz,.timing-n").click(function () {
+            $(".zz,.timing,.parameter").hide();
+        })
+        $(".read-a").click(function () {
+            $(".zz,.parameter").show();
+        })
+        $(".set").click(function () {
+            $(".zz,.timing").show();
+        })
+        $(".measure-list li").click(function () {
+            $(".measure-list li").removeClass("active");
+            $(this).addClass("active")
+        })
+        $(".measure-list p").click(function () {
+            $(this).next(".two").slideToggle();
+        })
+        $(".two p").click(function () {
+            $(".two p").removeClass("tow-active");
+            $(this).addClass("tow-active");
+            $('.measure .measure-right').hide().eq($(this).index()).fadeIn(150);
+        })
+    });
+    $("#right").load('right.html');
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
